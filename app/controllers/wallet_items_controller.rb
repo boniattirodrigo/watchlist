@@ -1,4 +1,6 @@
 class WalletItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @wallet_item = WalletItem.new(wallet_item_params)
 
