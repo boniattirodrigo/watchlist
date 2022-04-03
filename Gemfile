@@ -62,6 +62,7 @@ end
 group :development do
   gem "pry"
   gem "web-console"
+  gem "rails-erd"
 end
 
 group :test do
