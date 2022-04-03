@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Make sure you're using the right Ruby version defined on the Gemfile.
 
-Things you may want to cover:
+### Setup
+```bash
+bundle
+bundle exec rails db:create db:migrate
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Running
+```bash
+bundle exec rails s
+```

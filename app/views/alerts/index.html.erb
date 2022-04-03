@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Alerts</h1>
+
+<div id="alerts">
+  <% @alerts.each do |alert| %>
+    <%= render alert %>
+    <p>
+      <%= link_to "Show this alert", alert %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New alert", new_alert_path %>
