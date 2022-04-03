@@ -1,5 +1,9 @@
 <div id="alerts" class="alerts">
-  <% @alerts.each do |alert| %>
-    <p class="box"><%= alert.message %></p>
+  <% if @alerts.present? %>
+    <% @alerts.each do |alert| %>
+      <p class="box"><%= alert.message %></p>
+    <% end %>
+  <% else %>
+    <p>You have no alerts</p>
   <% end %>
 </div>

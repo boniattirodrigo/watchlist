@@ -1,6 +1,6 @@
 <div id="wallets">
   <%= form_with url: "/wallet/items", class: "watchlist_form", method: :post do |form| %>
-    <%= form.text_field :symbol, placeholder: "Add a new asset", class: "watchlist_form__input" %>
+    <%= form.text_field :symbol, placeholder: "Add a new asset", class: "watchlist_form__input", required: true %>
     <%= form.submit "Add", class: "watchlist_form__button" %>
   <% end %>
 
