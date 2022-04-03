@@ -2,9 +2,8 @@ class WalletItemsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    wallet = Wallet.find_or_create_by(user_id: current_user.id)
     asset = Asset.find_by(symbol: params[:symbol].upcase)
-    wallet_item = WalletItem.new(wallet: wallet, asset: asset)
+    wallet_item = WalletItem.new(wallet: current_user.wallet, asset: asset)
 
     respond_to do |format|
       if wallet_item.save

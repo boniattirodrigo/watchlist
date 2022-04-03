@@ -1,18 +1,19 @@
 <div id="wallets">
-  <% if @wallet.present? && @wallet.items.present? %>
-    <ul>
-      <% @wallet.items.each do |item| %>
-        <li><%= item.symbol %> <%= Money.from_cents(item.last_quote_price, item.currency).format %>
+  <%= form_with url: "/wallet/items", method: :post do |form| %>
+    <%= form.text_field :symbol, placeholder: "Asset symbol" %>
+    <%= form.submit "Add" %>
+  <% end %>
 
-        <%= button_to 'Delete', { controller: "wallet_items", action: "destroy", id: item.id }, method: :delete %>
+  <% if @wallet_items.present? %>
+    <ul>
+      <% @wallet_items.each do |item| %>
+        <li>
+          <%= item.symbol %> <%= Money.from_cents(item.last_quote_price, item.currency).format %>
+          <%= button_to 'Delete', { controller: "wallet_items", action: "destroy", id: item.id }, method: :delete %>
+        </li>
       <% end %>
     <ul>
   <% else %>
     <p>Your wallet is empty</p>
-  <% end %>
-
-  <%= form_with url: "/wallet/items", method: :post do |form| %>
-    <%= form.text_field :symbol, placeholder: "Asset symbol" %>
-    <%= form.submit "Add" %>
   <% end %>
 </div>

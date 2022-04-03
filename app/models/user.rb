@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :wallet, dependent: :destroy
+
+  after_create :create_wallet
+
+  def create_wallet
+    self.create_wallet!
+  end
 end
