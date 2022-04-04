@@ -7,5 +7,6 @@ class AlertsController < ApplicationController
     @alerts = Alert.joins(quote: :asset)
                    .where(quotes: { asset_id: assets_id })
                    .order(created_at: :desc)
+                   .limit(30)
   end
 end
