@@ -261,6 +261,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   money (~> 6.16)
+  nokogiri (~> 1.6, >= 1.6.8)
   pg (~> 1.1)
   pry
   puma (~> 5.0)
