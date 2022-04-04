@@ -57,6 +57,7 @@ gem "money", "~> 6.16"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
 end
 
 group :development do
@@ -70,6 +71,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "factory_bot_rails", "~> 6.2"
+  gem "rspec-rails", "~> 5.1"
 end
 
 gem "dotenv-rails", "~> 2.7"
+
+
