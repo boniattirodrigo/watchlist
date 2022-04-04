@@ -78,3 +78,5 @@ end
 gem "dotenv-rails", "~> 2.7"
 
 
+
+gem "shoulda-matchers", "~> 5.1"
