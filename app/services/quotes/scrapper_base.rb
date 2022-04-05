@@ -18,7 +18,7 @@ module Quotes
       throw NotImplementedError
     end
 
-    def self.parse_quote
+    def self.parse_quote(_html)
       throw NotImplementedError
     end
 
