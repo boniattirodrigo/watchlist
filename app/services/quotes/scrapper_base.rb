@@ -3,18 +3,18 @@ module Quotes
     class RequestFailed < StandardError; end
 
     def self.quote_for_all
-      assets_codes.map do |code|
-        [code, quote_for(code)]
+      supported_assets_symbols.map do |symbol|
+        [symbol, quote_for(symbol)]
       end.to_h
     end
 
-    def self.quote_for(asset_code)
-      res = HTTParty.get(quote_url(asset_code))
+    def self.quote_for(asset_symbol)
+      res = HTTParty.get(quote_url(asset_symbol))
       throw RequestFailed unless res.code == 200
       parse_quote(res.body)
     end
 
-    def self.quote_url(_asset_code)
+    def self.quote_url(_asset_symbol)
       throw NotImplementedError
     end
 
@@ -22,7 +22,7 @@ module Quotes
       throw NotImplementedError
     end
 
-    def self.assets_codes
+    def self.supported_assets_symbols
       throw NotImplementedError
     end
   end

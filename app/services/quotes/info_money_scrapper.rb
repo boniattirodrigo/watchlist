@@ -1,7 +1,7 @@
 module Quotes
   class InfoMoneyScrapper < ScrapperBase
     URL = 'https://www.infomoney.com.br/cotacoes/b3/acao'
-    ASSETS_URL_CODES = {
+    ASSETS_SYMBOLS_URL = {
       SOJA3: 'boa-safra-soja3',
       ENJU3: 'enjoei-enju3',
       MELK3: 'melnick-melk3/',
@@ -16,12 +16,12 @@ module Quotes
       doc.css('.quotes-header-info').css('.value').css('p').text.gsub(/[,.]/, '').to_i
     end
 
-    def self.quote_url(asset_code)
-      "#{URL}/#{ASSETS_URL_CODES.with_indifferent_access[asset_code]}"
+    def self.quote_url(asset_symbol)
+      "#{URL}/#{ASSETS_SYMBOLS_URL.with_indifferent_access[asset_symbol]}"
     end
 
-    def self.assets_codes
-      ASSETS_URL_CODES.map { |k, _| k }
+    def self.supported_assets_symbols
+      ASSETS_SYMBOLS_URL.map { |k, _| k }
     end
   end
 end

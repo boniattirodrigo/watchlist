@@ -1,18 +1,18 @@
 module Quotes
   class CurrentAssetQuoteGetter
-    def self.call(asset_code)
-      new(asset_code).call
+    def self.call(asset_symbol)
+      new(asset_symbol).call
     end
 
-    def initialize(asset_code)
-      @asset_code = asset_code
+    def initialize(asset_symbol)
+      @asset_symbol = asset_symbol
     end
     private_class_method :new
 
     def call
-      StatusInvestScrapper.quote_for(@asset_code)
+      StatusInvestScrapper.quote_for(@asset_symbol)
     rescue ScrapperBase::RequestFailed
-      InfoMoneyScrapper.quote_for(@asset_code)
+      InfoMoneyScrapper.quote_for(@asset_symbol)
     end
   end
 end
