@@ -5,7 +5,7 @@ module Quotes
     end
 
     def initialize(asset_symbol)
-      @asset_symbol = asset_symbol
+      @asset_symbol = asset_symbol.to_sym
     end
     private_class_method :new
 
