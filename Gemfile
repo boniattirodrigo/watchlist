@@ -82,3 +82,5 @@ gem "shoulda-matchers", "~> 5.1"
 gem "httparty", "~> 0.20.0"
 
 gem "nokogiri", "~> 1.13"
+
+gem "sidekiq", "~> 6.4"
