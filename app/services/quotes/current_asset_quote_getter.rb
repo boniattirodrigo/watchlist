@@ -11,7 +11,7 @@ module Quotes
 
     def call
       StatusInvestScrapper.quote_for(@asset_symbol)
-    rescue ScrapperBase::RequestFailed
+    rescue ScrapperBase::RequestFailed, Quotes::ScrapperBase::AssetSymbolNotFound
       InfoMoneyScrapper.quote_for(@asset_symbol)
     end
   end

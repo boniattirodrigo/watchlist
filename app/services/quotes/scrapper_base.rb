@@ -1,6 +1,7 @@
 module Quotes
   class ScrapperBase
     class RequestFailed < StandardError; end
+    class AssetSymbolNotFound < StandardError; end
 
     def self.quote_for_all
       supported_assets_symbols.map do |symbol|
@@ -9,8 +10,9 @@ module Quotes
     end
 
     def self.quote_for(asset_symbol)
+      raise AssetSymbolNotFound unless supported_assets_symbols.include?(asset_symbol)
       res = HTTParty.get(quote_url(asset_symbol))
-      throw RequestFailed unless res.code == 200
+      raise RequestFailed unless res.code == 200
       parse_quote(res.body)
     end
 
