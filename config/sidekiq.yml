@@ -1,0 +1,4 @@
+:schedule:
+  update_all_assets_job:
+    cron: "0 * * * * *"
+    class: UpdateAllAssetsJob

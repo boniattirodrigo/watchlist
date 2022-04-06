@@ -52,6 +52,7 @@ gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 
 gem 'sidekiq'
 
+gem 'sidekiq-scheduler'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
