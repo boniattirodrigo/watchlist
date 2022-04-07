@@ -1,3 +1,6 @@
+:queues:
+  - in_wallet
+  - default
 :schedule:
   update_quote:
     cron: "*/5 * * * *"

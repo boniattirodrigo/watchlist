@@ -7,6 +7,15 @@ class AssetsPriceUpdater
   private_class_method :new
 
   def call
-    Asset.pluck(:symbol).each { |symbol| UpdateQuoteJob.perform_async(symbol) }
+    queues = {
+      default: Asset.not_in_wallet.pluck(:symbol),
+      in_wallet: Asset.in_wallet.pluck(:symbol)
+    }
+
+    queues.each do |queue, symbols|
+      symbols.each do |symbol|
+        UpdateQuoteJob.set(queue: queue).perform_async(symbol)
+      end
+    end
   end
 end
