@@ -28,41 +28,50 @@ quote_aapl_1 = Quote.find_or_create_by(asset: aapl, price: 17_400)
 quote_aapl_2 = Quote.find_or_create_by(asset: aapl, price: 16_000)
 quote_aapl_3 = Quote.find_or_create_by(asset: aapl, price: 15_300, current: true)
 
-Alert.find_or_create_by(quote: quote_btc_1,
-                        message: "#{btc.symbol} is going down to #{Money.from_cents(
-                          quote_btc_1.price, btc.currency
-                        ).format}")
-Alert.find_or_create_by(quote: quote_btc_2,
-                        message: "#{btc.symbol} is going up to #{Money.from_cents(
-                          quote_btc_2.price, btc.currency
-                        ).format}")
-Alert.find_or_create_by(quote: quote_btc_3,
-                        message: "#{btc.symbol} is going down to #{Money.from_cents(
-                          quote_btc_3.price, btc.currency
-                        ).format}")
+Alert.find_or_create_by(
+  message: "#{btc.symbol} is going down to #{Money.from_cents(
+    quote_btc_1.price, btc.currency
+  ).format}"
+)
+Alert.find_or_create_by(
+  message: "#{btc.symbol} is going up to #{Money.from_cents(
+    quote_btc_2.price, btc.currency
+  ).format}"
+)
+Alert.find_or_create_by(
+  message: "#{btc.symbol} is going down to #{Money.from_cents(
+    quote_btc_3.price, btc.currency
+  ).format}"
+)
 
-Alert.find_or_create_by(quote: quote_petr4_1,
-                        message: "#{petr4.symbol} is going up to #{Money.from_cents(
-                          quote_petr4_1.price, petr4.currency
-                        ).format}")
-Alert.find_or_create_by(quote: quote_petr4_2,
-                        message: "#{petr4.symbol} is going down to #{Money.from_cents(
-                          quote_petr4_2.price, petr4.currency
-                        ).format}")
-Alert.find_or_create_by(quote: quote_petr4_3,
-                        message: "#{petr4.symbol} is going up to #{Money.from_cents(
-                          quote_petr4_3.price, petr4.currency
-                        ).format}")
+Alert.find_or_create_by(
+  message: "#{petr4.symbol} is going up to #{Money.from_cents(
+    quote_petr4_1.price, petr4.currency
+  ).format}"
+)
+Alert.find_or_create_by(
+  message: "#{petr4.symbol} is going down to #{Money.from_cents(
+    quote_petr4_2.price, petr4.currency
+  ).format}"
+)
+Alert.find_or_create_by(
+  message: "#{petr4.symbol} is going up to #{Money.from_cents(
+    quote_petr4_3.price, petr4.currency
+  ).format}"
+)
 
-Alert.find_or_create_by(quote: quote_aapl_1,
-                        message: "#{aapl.symbol} is going down to #{Money.from_cents(
-                          quote_aapl_1.price, aapl.currency
-                        ).format}")
-Alert.find_or_create_by(quote: quote_aapl_2,
-                        message: "#{aapl.symbol} is going down to #{Money.from_cents(
-                          quote_aapl_2.price, aapl.currency
-                        ).format}")
-Alert.find_or_create_by(quote: quote_aapl_3,
-                        message: "#{aapl.symbol} is going down to #{Money.from_cents(
-                          quote_aapl_3.price, aapl.currency
-                        ).format}")
+Alert.find_or_create_by(
+  message: "#{aapl.symbol} is going down to #{Money.from_cents(
+    quote_aapl_1.price, aapl.currency
+  ).format}"
+)
+Alert.find_or_create_by(
+  message: "#{aapl.symbol} is going down to #{Money.from_cents(
+    quote_aapl_2.price, aapl.currency
+  ).format}"
+)
+Alert.find_or_create_by(
+  message: "#{aapl.symbol} is going down to #{Money.from_cents(
+    quote_aapl_3.price, aapl.currency
+  ).format}"
+)

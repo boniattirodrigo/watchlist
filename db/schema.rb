@@ -10,17 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_03_224110) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_07_195859) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "alerts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "message"
-    t.uuid "quote_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["quote_id"], name: "index_alerts_on_quote_id"
   end
 
   create_table "assets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -69,7 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_03_224110) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
-  add_foreign_key "alerts", "quotes"
   add_foreign_key "quotes", "assets"
   add_foreign_key "wallet_items", "assets"
   add_foreign_key "wallet_items", "wallets"
