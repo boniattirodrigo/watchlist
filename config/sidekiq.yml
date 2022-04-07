@@ -1,0 +1,4 @@
+:schedule:
+  update_quote:
+    cron: "*/5 * * * *"
+    class: UpdateAllAssetsQuoteJob

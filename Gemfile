@@ -84,3 +84,5 @@ gem "httparty", "~> 0.20.0"
 gem "nokogiri", "~> 1.13"
 
 gem "sidekiq", "~> 6.4"
+
+gem "sidekiq-scheduler", "~> 3.1"
