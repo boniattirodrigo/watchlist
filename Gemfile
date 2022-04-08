@@ -77,6 +77,8 @@ end
 
 gem "dotenv-rails", "~> 2.7"
 
-
-
 gem "shoulda-matchers", "~> 5.1"
+
+gem "httparty", "~> 0.20.0"
+
+gem "nokogiri", "~> 1.13"

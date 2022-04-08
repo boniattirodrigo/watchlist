@@ -111,6 +111,9 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    httparty (0.20.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.3)
@@ -130,11 +133,15 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     minitest (5.15.0)
     money (6.16.0)
       i18n (>= 0.6.4, <= 2)
     msgpack (1.4.5)
+    multi_xml (0.6.0)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -289,9 +296,11 @@ DEPENDENCIES
   devise (~> 4.8, >= 4.8.1)
   dotenv-rails (~> 2.7)
   factory_bot_rails (~> 6.2)
+  httparty (~> 0.20.0)
   importmap-rails
   jbuilder
   money (~> 6.16)
+  nokogiri (~> 1.13)
   pg (~> 1.1)
   pry
   puma (~> 5.0)
