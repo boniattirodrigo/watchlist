@@ -11,7 +11,6 @@ class AssetsPriceUpdater
       default: Asset.not_in_wallet.pluck(:symbol),
       in_wallet: Asset.in_wallet.pluck(:symbol)
     }
-
     queues.each do |queue, symbols|
       symbols.each do |symbol|
         UpdateQuoteJob.set(queue: queue).perform_async(symbol)
