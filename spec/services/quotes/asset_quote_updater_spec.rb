@@ -5,13 +5,17 @@ module Quotes
     let!(:asset) { create(:asset) }
     subject { described_class.call(asset.symbol) }
 
-    it 'updates asset quote' do
+    before do
       allow(CurrentAssetQuoteGetter).to receive_messages(call: 100)
+    end
+
+    it 'updates asset quote' do
       expect { subject }.to change(Quote, :count).by(1)
     end
 
     describe 'with a quote already added' do
       let!(:quote) { create(:quote, asset: asset) }
+
       it 'adds new quote as current' do
         expect { subject }.to change(Quote, :count).by(1)
       end
